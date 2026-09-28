@@ -1,6 +1,6 @@
 import Link from "next/link";
-import NavLink from "../Assets/NavLink";
-import Button from "../Assets/Button";
+import NavLink from "../Components/NavLink";
+import Button from "../Components/Button";
 
 export default function Navbar() {
   return (
