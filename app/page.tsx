@@ -2,6 +2,7 @@ import Navbar from "./Sections/Navbar";
 import ServicesSection from "./Sections/ServicesSection";
 import WhyChooseUsSection from "./Sections/WhyChooseUsSection";
 import HowItWorksSection from "./Sections/HowItWorksSection";
+import ContactSection from "./Sections/ContactSection";
 import "./globals.css";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <ServicesSection />
       <WhyChooseUsSection />
       <HowItWorksSection />
+      <ContactSection />
     </main>
   );
 }
