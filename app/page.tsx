@@ -1,6 +1,7 @@
 import Navbar from "./Sections/Navbar";
 import ServicesSection from "./Sections/ServicesSection";
 import WhyChooseUsSection from "./Sections/WhyChooseUsSection";
+import HowItWorksSection from "./Sections/HowItWorksSection";
 import "./globals.css";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <Navbar />
       <ServicesSection />
       <WhyChooseUsSection />
+      <HowItWorksSection />
     </main>
   );
 }
