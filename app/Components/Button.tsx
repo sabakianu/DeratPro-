@@ -19,15 +19,11 @@ export default function Button({
   const variants = {
     primary:
       "bg-primary text-white shadow-level-1 hover:brightness-110 focus:shadow-glow-primary",
-
     secondary:
-      "bg-surface-container-low text-on-surface hover:bg-surface-container shadow-level-1",
-
-    inverted:
-      "bg-inverse-surface text-inverse-on-surface shadow-level-1 hover:opacity-90",
-
+      "bg-bg-muted text-text-main hover:bg-border-light shadow-level-1",
+    inverted: "bg-bg-dark text-text-light shadow-level-1 hover:opacity-90",
     outlined:
-      "bg-transparent border border-outline text-on-surface hover:bg-surface-container-low",
+      "bg-transparent border border-border-dark text-text-main hover:bg-bg-muted",
   };
 
   if (href) {

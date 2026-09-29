@@ -18,7 +18,7 @@ export default function StepCard({
   circleClasses = "bg-primary text-white",
 }: StepCardProps) {
   return (
-    <div className="relative bg-surface p-8 rounded-xl border border-surface-border shadow-level-1 flex flex-col justify-between h-full">
+    <div className="relative bg-bg-white p-8 rounded-xl border border-border-light shadow-level-1 flex flex-col justify-between h-full">
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <span
@@ -26,12 +26,12 @@ export default function StepCard({
           >
             {stepNumber}
           </span>
-          <span className="material-symbols-outlined text-outline text-[28px]">
+          <span className="material-symbols-outlined text-border-dark text-[28px]">
             {icon}
           </span>
         </div>
-        <h3 className="text-xl text-on-surface font-semibold pt-2">{title}</h3>
-        <p className="text-base text-on-surface-variant leading-relaxed">
+        <h3 className="text-xl text-text-main font-semibold pt-2">{title}</h3>
+        <p className="text-base text-text-muted leading-relaxed">
           {description}
         </p>
       </div>

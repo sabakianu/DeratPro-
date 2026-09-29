@@ -8,10 +8,7 @@ interface FooterLinkProps {
 export default function FooterLink({ href, text }: FooterLinkProps) {
   return (
     <li className="py-1">
-      <Link
-        href={href}
-        className="hover:text-tertiary-fixed-dim transition-colors"
-      >
+      <Link href={href} className="hover:text-brand-accent transition-colors">
         {text}
       </Link>
     </li>

@@ -12,14 +12,12 @@ export default function FeatureCard({
   description,
 }: FeatureCardProps) {
   return (
-    <div className="bg-surface p-6 rounded-xl border border-surface-border shadow-level-1 space-y-4 hover:border-primary transition-all group">
+    <div className="bg-bg-white p-6 rounded-xl border border-border-light shadow-level-1 space-y-4 hover:border-primary transition-all group">
       <IconBox icon={icon} />
 
       <div>
-        <h4 className="text-xl text-on-surface font-bold mb-1">{title}</h4>
-        <p className="text-sm text-on-surface-variant leading-relaxed">
-          {description}
-        </p>
+        <h4 className="text-xl text-text-main font-bold mb-1">{title}</h4>
+        <p className="text-sm text-text-muted leading-relaxed">{description}</p>
       </div>
     </div>
   );

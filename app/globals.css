@@ -6,19 +6,28 @@
   --shadow-level-1: 0 1px 3px 0 rgb(0 0 / 0.1);
   --shadow-glow-primary: 0 0 10px rgba(0, 76, 34, 0.5);
 
+  /* 1. Culorile Brandului */
   --color-primary: #004c22;
   --color-primary-hover: #003618;
+  --color-brand-light: #d9eaa3;
+  --color-brand-accent: #91db2a;
   --color-secondary: #56642b;
   --color-accent: #84cc16;
-  --color-surface: #ffffff;
-  --color-surface-canvas: #f8f9ff;
-  --color-surface-container-low: #eff4ff;
-  --color-inverse-surface: #213145;
-  --color-inverse-on-surface: #eaf1ff;
-  --color-outline: #707a6f;
-  --color-on-surface: #0b1c30;
-  --color-on-surface-variant: #4a5568;
-  --color-surface-border: #e2e8f0;
-  --color-tertiary-fixed-dim: #91db2a;
+
+  /* 2. Fundaluri (Backgrounds) */
+  --color-bg-white: #ffffff;
+  --color-bg-main: #f8f9ff;
+  --color-bg-muted: #eff4ff;
+  --color-bg-dark: #213145;
+
+  /* 3. Text */
+  --color-text-main: #0b1c30;
+  --color-text-muted: #4a5568;
+  --color-text-light: #eaf1ff;
+
+  /* 4. Borduri (Borders) */
+  --color-border-light: #e2e8f0;
+  --color-border-dark: #707a6f;
+
   --radius-soft: 4px;
 }

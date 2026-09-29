@@ -50,7 +50,7 @@ export default function ContactForm() {
         <div className="space-y-2">
           <label
             htmlFor="nume"
-            className="text-sm text-on-surface font-semibold"
+            className="text-sm text-text-main font-semibold"
           >
             Nume complet *
           </label>
@@ -61,13 +61,13 @@ export default function ContactForm() {
             type="text"
             required
             placeholder="ex. Popescu Ion"
-            className="w-full px-4 py-3 rounded-lg bg-surface border border-outline/30 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+            className="w-full px-4 py-3 rounded-lg bg-bg-white border border-border-dark/30 text-text-main focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
           />
         </div>
         <div className="space-y-2">
           <label
             htmlFor="telefon"
-            className="text-sm text-on-surface font-semibold"
+            className="text-sm text-text-main font-semibold"
           >
             Număr de telefon *
           </label>
@@ -78,7 +78,7 @@ export default function ContactForm() {
             type="tel"
             required
             placeholder="07xxxxxxxx"
-            className="w-full px-4 py-3 rounded-lg bg-surface border border-outline/30 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+            className="w-full px-4 py-3 rounded-lg bg-bg-white border border-border-dark/30 text-text-main focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
           />
         </div>
       </div>
@@ -87,7 +87,7 @@ export default function ContactForm() {
         <div className="space-y-2">
           <label
             htmlFor="email"
-            className="text-sm text-on-surface font-semibold"
+            className="text-sm text-text-main font-semibold"
           >
             Adresă de Email
           </label>
@@ -97,13 +97,13 @@ export default function ContactForm() {
             onChange={handleChange}
             type="email"
             placeholder="nume@exemplu.ro"
-            className="w-full px-4 py-3 rounded-lg bg-surface border border-outline/30 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+            className="w-full px-4 py-3 rounded-lg bg-bg-white border border-border-dark/30 text-text-main focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
           />
         </div>
         <div className="space-y-2">
           <label
             htmlFor="serviciu"
-            className="text-sm text-on-surface font-semibold"
+            className="text-sm text-text-main font-semibold"
           >
             Tipul Serviciului *
           </label>
@@ -112,7 +112,7 @@ export default function ContactForm() {
             value={formData.serviciu}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 rounded-lg bg-surface border border-outline/30 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+            className="w-full px-4 py-3 rounded-lg bg-bg-white border border-border-dark/30 text-text-main focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
           >
             <option value="">Alegeți serviciul dorit</option>
             <option value="deratizare">
@@ -132,10 +132,7 @@ export default function ContactForm() {
       </div>
 
       <div className="space-y-2">
-        <label
-          htmlFor="mesaj"
-          className="text-sm text-on-surface font-semibold"
-        >
+        <label htmlFor="mesaj" className="text-sm text-text-main font-semibold">
           Mesaj sau descrierea problemei
         </label>
         <textarea
@@ -144,7 +141,7 @@ export default function ContactForm() {
           onChange={handleChange}
           rows={4}
           placeholder="Specificați tipul spațiului (ex: apartament 2 camere, depozit 400mp) și detalii despre dăunător..."
-          className="w-full px-4 py-3 rounded-lg bg-surface border border-outline/30 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+          className="w-full px-4 py-3 rounded-lg bg-bg-white border border-border-dark/30 text-text-main focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
         />
       </div>
 
@@ -154,7 +151,7 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="w-full py-4 px-8 rounded-lg bg-primary text-white text-base font-bold hover:bg-[#003618] transition-all shadow-md flex items-center justify-center gap-2 group"
+        className="w-full py-4 px-8 rounded-lg bg-primary text-white text-base font-bold hover:bg-primary-hover transition-all shadow-md flex items-center justify-center gap-2 group"
       >
         <span>Trimite Solicitarea de Ofertă</span>
         <span className="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">
@@ -174,7 +171,7 @@ export default function ContactForm() {
         </div>
       )}
 
-      <p className="text-xs text-outline text-center">
+      <p className="text-xs text-border-dark text-center">
         Datele dvs. sunt protejate conform legislației GDPR. Fără apeluri de
         marketing spam.
       </p>

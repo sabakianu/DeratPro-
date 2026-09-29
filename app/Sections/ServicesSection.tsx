@@ -45,15 +45,15 @@ const servicesData = [
 
 export default function ServicesSection() {
   return (
-    <section className="w-full bg-surface-container-low py-20">
+    <section className="w-full bg-bg-muted py-20">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
         <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <Badge text="SOLUȚII COMPLETE" />
+          <Badge variant="soft">SOLUȚII COMPLETE</Badge>
 
-          <h2 className="text-4xl font-bold text-on-surface font-['Plus_Jakarta_Sans',sans-serif]">
+          <h2 className="text-4xl font-bold text-text-main font-['Plus_Jakarta_Sans',sans-serif]">
             Servicii Specializate de Pest Control
           </h2>
-          <p className="text-lg text-on-surface-variant">
+          <p className="text-lg text-text-muted">
             Protocoale stricte, substanțe de ultimă generație și siguranță
             absolută pentru oameni și animale.
           </p>
