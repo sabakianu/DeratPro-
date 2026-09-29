@@ -1,5 +1,5 @@
-import Badge from "../Components/Badge"; // Ajustează calea
-import StepCard from "../Components/StepCard";
+import Badge from "../Components/Badge";
+import StepCard from "../Components/Cards/StepCard";
 
 const stepsData = [
   {

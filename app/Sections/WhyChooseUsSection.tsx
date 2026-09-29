@@ -1,5 +1,5 @@
 import Badge from "../Components/Badge";
-import FeatureCard from "../Components/FeatureCard";
+import FeatureCard from "../Components/Cards/FeatureCard";
 import HighlightBox from "../Components/HighlightBox";
 
 const differentiators = [

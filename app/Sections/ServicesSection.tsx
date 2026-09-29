@@ -1,4 +1,4 @@
-import ServiceCard from "../Components/ServiceCard";
+import ServiceCard from "../Components/Cards/ServiceCard";
 import Badge from "../Components/Badge";
 
 const servicesData = [

@@ -1,4 +1,4 @@
-import IconBox from "./IconBox";
+import IconBox from "../IconBox";
 
 interface FeatureCardProps {
   icon: string;

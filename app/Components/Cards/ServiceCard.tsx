@@ -1,5 +1,5 @@
-import Button from "./Button";
-import IconBox from "./IconBox";
+import Button from "../Button";
+import IconBox from "../IconBox";
 
 interface ServiceCardProps {
   icon: string;
