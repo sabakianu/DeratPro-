@@ -45,7 +45,7 @@ const servicesData = [
 
 export default function ServicesSection() {
   return (
-    <section className="w-full bg-bg-muted py-20">
+    <section className="w-full bg-bg-muted py-20" id="services">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
         <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-16 space-y-4">
           <Badge variant="soft">SOLUȚII COMPLETE</Badge>

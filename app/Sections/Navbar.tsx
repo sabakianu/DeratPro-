@@ -1,8 +1,19 @@
+"use client";
+
 import Link from "next/link";
 import NavLink from "../Components/NavLink";
 import Button from "../Components/Button";
+import { useScrollspy } from "../Hooks/useScrollspy";
 
 export default function Navbar() {
+  const activeSection = useScrollspy([
+    "home",
+    "services",
+    "why-us",
+    "how-works",
+    "contact",
+  ]);
+
   return (
     <header className="sticky top-0 z-50 w-full bg-bg-white/90 backdrop-blur-md border-b border-border-light shadow-md h-20 px-6 flex items-center justify-between font-['Plus_Jakarta_Sans',sans-serif]">
       <Link href="/" className="flex items-center h-full outline-none">
@@ -12,12 +23,30 @@ export default function Navbar() {
           src="/logo.png"
         />
       </Link>
+
       <nav className="hidden lg:flex items-center h-full gap-8 text-sm">
-        <NavLink text="Servicii" />
-        <NavLink text="De Ce Noi" />
-        <NavLink text="Cum Funcționează" />
-        <NavLink text="Contact" />
+        <NavLink
+          text="Servicii"
+          href="#services"
+          isActive={activeSection === "services"}
+        />
+        <NavLink
+          text="De Ce Noi"
+          href="#why-us"
+          isActive={activeSection === "why-us"}
+        />
+        <NavLink
+          text="Cum Funcționează"
+          href="#how-works"
+          isActive={activeSection === "how-works"}
+        />
+        <NavLink
+          text="Contact"
+          href="#contact"
+          isActive={activeSection === "contact"}
+        />
       </nav>
+
       <div className="flex items-center gap-3 h-full">
         <Button variant="secondary" className="gap-2">
           <span className="material-symbols-outlined text-[18px] text-brand-accent">

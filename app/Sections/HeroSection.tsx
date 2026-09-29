@@ -5,7 +5,10 @@ import Badge from "../Components/Badge";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-bg-main py-16 lg:py-24">
+    <section
+      className="relative w-full overflow-hidden bg-bg-main py-16 lg:py-24"
+      id="home"
+    >
       <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-secondary/15 blur-3xl pointer-events-none" />
       <div className="absolute top-1/2 -right-32 w-120 h-120 rounded-full bg-brand-accent/15 blur-3xl pointer-events-none" />
 
@@ -24,7 +27,7 @@ export default function HeroSection() {
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-text-main tracking-tight leading-tight">
               DeratPro –{" "}
-              <span className="bg-gradient-to-r from-primary via-secondary to-brand-accent bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-primary via-secondary to-brand-accent bg-clip-text text-transparent">
                 Protecție Totală
               </span>{" "}
               Împotriva Dăunătorilor

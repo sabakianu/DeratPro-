@@ -1,11 +1,25 @@
-interface NavItemProps {
+import Link from "next/link";
+
+interface NavLinkProps {
   text: string;
+  href: string;
+  isActive?: boolean;
 }
 
-export default function NavItem({ text }: NavItemProps) {
+export default function NavLink({
+  text,
+  href,
+  isActive = false,
+}: NavLinkProps) {
   return (
-    <a className="group font-sans transition-colors cursor-pointer px-3 h-full flex items-center text-lg text-text-muted hover:text-primary">
+    <Link
+      href={href}
+      className={`group font-sans transition-colors cursor-pointer px-3 h-full flex items-center text-lg ${
+        isActive ? "text-primary" : "text-text-muted hover:text-primary"
+      }`}
+    >
       <span className="grid place-items-center">
+        {/* text ascuns pt dim. bold */}
         <span
           className="invisible font-bold col-start-1 row-start-1 select-none"
           aria-hidden="true"
@@ -13,10 +27,15 @@ export default function NavItem({ text }: NavItemProps) {
           {text}
         </span>
 
-        <span className="visible font-medium group-hover:font-bold col-start-1 row-start-1 transition-all">
+        {/* text activ*/}
+        <span
+          className={`visible col-start-1 row-start-1 transition-all ${
+            isActive ? "font-bold" : "font-medium group-hover:font-bold"
+          }`}
+        >
           {text}
         </span>
       </span>
-    </a>
+    </Link>
   );
 }

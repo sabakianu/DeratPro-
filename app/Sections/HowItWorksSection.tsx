@@ -33,7 +33,7 @@ const stepsData = [
 
 export default function HowItWorksSection() {
   return (
-    <section className="w-full bg-bg-muted py-20">
+    <section className="w-full bg-bg-muted py-20" id="how-works">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
         <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-16 space-y-4">
           <Badge variant="soft">PROCEDURĂ SIMPLĂ</Badge>

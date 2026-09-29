@@ -35,7 +35,7 @@ const differentiators = [
 
 export default function WhyChooseUsSection() {
   return (
-    <section className="w-full bg-bg-main py-20">
+    <section className="w-full bg-bg-main py-20" id="why-us">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 space-y-6">

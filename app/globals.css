@@ -31,3 +31,7 @@
 
   --radius-soft: 4px;
 }
+
+html {
+  scroll-behavior: smooth;
+}
