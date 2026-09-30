@@ -4,6 +4,7 @@ import Link from "next/link";
 import NavLink from "../Components/NavLink";
 import Button from "../Components/Button";
 import { useScrollspy } from "../Hooks/useScrollspy";
+import { siteConfig } from "@/config/site";
 
 export default function Navbar() {
   const activeSection = useScrollspy([
@@ -48,11 +49,15 @@ export default function Navbar() {
       </nav>
 
       <div className="flex items-center gap-3 h-full">
-        <Button variant="secondary" className="gap-2">
+        <Button
+          href={siteConfig.contact.emergencyPhone.href}
+          variant="secondary"
+          className="gap-2"
+        >
           <span className="material-symbols-outlined text-[18px] text-brand-accent">
             e911_emergency
           </span>
-          <span>0700 000 000</span>
+          <span>{siteConfig.contact.emergencyPhone.display}</span>
         </Button>
 
         <Button variant="primary" href="#contact">

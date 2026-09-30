@@ -5,14 +5,9 @@ import Badge from "../Components/Badge";
 import HighlightBox from "../Components/HighlightBox";
 import ContactDetail from "../Components/ContactDetail";
 import ContactForm from "../Components/ContactForm";
+import { siteConfig } from "@/config/site";
 
 export default function ContactSection() {
-  const [isSuccess, setIsSuccess] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    console.log("Submit");
-  };
-
   return (
     <section
       className="w-full bg-bg-main py-20 relative overflow-hidden"
@@ -37,17 +32,20 @@ export default function ContactSection() {
               <ContactDetail
                 icon="phone"
                 label="Telefon Dispecerat 24/7"
-                value="0722 123 456"
+                value={siteConfig.contact.dispatchPhone.display}
+                href={siteConfig.contact.dispatchPhone.href}
               />
+
               <ContactDetail
                 icon="mail"
                 label="Email Suport"
-                value="contact@deratpro.ro"
+                value={siteConfig.contact.supportEmail.display}
+                href={siteConfig.contact.supportEmail.href}
               />
               <ContactDetail
                 icon="schedule"
                 label="Program Operativ"
-                value="Non-Stop (Luni - Duminică)"
+                value={siteConfig.schedule.emergency}
               />
             </div>
 

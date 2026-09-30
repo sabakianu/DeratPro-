@@ -2,6 +2,7 @@ import Button from "../Components/Button";
 import StatBlock from "../Components/StatBlock";
 import HeroVisual from "../Components/HeroVisual";
 import Badge from "../Components/Badge";
+import { siteConfig } from "@/config/site";
 
 export default function HeroSection() {
   return (
@@ -53,14 +54,16 @@ export default function HeroSection() {
               </Button>
 
               <Button
-                href="tel:0722123456"
+                href={siteConfig.contact.dispatchPhone.href}
                 variant="secondary"
                 className="gap-2 px-8 py-3.5 text-sm sm:text-base font-bold shadow-sm text-primary border border-border-light bg-bg-white"
               >
                 <span className="material-symbols-outlined text-[20px] text-primary">
                   call
                 </span>
-                <span>Sună Acum: 0722 123 456</span>
+                <span>
+                  Sună Acum: {siteConfig.contact.dispatchPhone.display}
+                </span>
               </Button>
             </div>
 

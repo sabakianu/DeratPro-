@@ -2,13 +2,13 @@ import Link from "next/link";
 import FooterCheckItem from "../Components/FooterCheckItem";
 import FooterLink from "../Components/FooterLink";
 import Badge from "../Components/Badge";
+import { siteConfig } from "@/config/site";
 
 export default function Footer() {
   return (
     <footer className="w-full bg-bg-dark text-text-light">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 pt-20 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          {/* DeratPro DDD */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <span className="material-symbols-outlined text-brand-accent text-[28px]">
@@ -46,7 +46,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Navigare Rapidă */}
           <div className="space-y-6">
             <h4 className="text-lg font-bold text-white">Navigare Rapidă</h4>
             <ul className="space-y-2 text-sm text-text-light/80">
@@ -67,22 +66,30 @@ export default function Footer() {
             </h4>
             <div className="space-y-2 text-sm text-text-light/80">
               <p className="text-white font-semibold mb-3">
-                Intervenții Rapide: Non-Stop 24/7
+                Intervenții Rapide: {siteConfig.schedule.emergency}
               </p>
               <p>
                 Program Administrativ:
                 <br />
-                Luni - Vineri: 08:00 - 18:00
+                {siteConfig.schedule.administrative}
               </p>
               <p className="pt-2">
                 Telefon Urgențe:{" "}
-                <span className="text-brand-accent font-bold">
-                  0700 000 000
-                </span>
+                <a
+                  href={siteConfig.contact.emergencyPhone.href}
+                  className="text-brand-accent font-bold hover:underline transition-all"
+                >
+                  {siteConfig.contact.emergencyPhone.display}
+                </a>
               </p>
               <p>
                 Email:{" "}
-                <span className="text-white">dispecerat@deratpro.ro</span>
+                <a
+                  href={siteConfig.contact.dispatchEmail.href}
+                  className="text-white hover:underline transition-all"
+                >
+                  {siteConfig.contact.dispatchEmail.display}
+                </a>
               </p>
             </div>
           </div>
