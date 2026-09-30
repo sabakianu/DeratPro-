@@ -23,7 +23,24 @@ export function useScrollspy(sectionIds: string[]) {
     });
 
     return () => observer.disconnect();
-  }, [sectionIds]);
+  }, [JSON.stringify(sectionIds)]);
 
   return activeSection;
 }
+
+export const handleSmoothScroll = (
+  e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
+  href: string,
+) => {
+  if (href.startsWith("#")) {
+    e.preventDefault();
+
+    const targetId = href.replace("#", "");
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      window.history.replaceState(null, "", href);
+    }
+  }
+};
