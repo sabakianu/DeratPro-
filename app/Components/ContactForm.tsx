@@ -30,9 +30,40 @@ export default function ContactForm() {
     setFormStatus("idle");
     setErrorMessage("");
 
-    if (formData.telefon.length < 10) {
+    const numeRegex = /^[a-zA-ZăâîșțĂÂÎȘȚ\s\-]+$/;
+    if (!numeRegex.test(formData.nume.trim())) {
       setFormStatus("error");
-      setErrorMessage("Numărul de telefon pare invalid. Te rugăm să verifici.");
+      setErrorMessage(
+        "Numele este invalid. Folosiți doar litere, spații sau cratime.",
+      );
+      return;
+    }
+
+    const numarCuratat = formData.telefon.replace(/\s/g, "");
+    const telefonRegex = /^0[0-9]{9}$/;
+    if (!telefonRegex.test(numarCuratat)) {
+      setFormStatus("error");
+      setErrorMessage(
+        "Numărul de telefon este invalid. Acesta trebuie să conțină 10 cifre.",
+      );
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (
+      formData.email.trim() !== "" &&
+      !emailRegex.test(formData.email.trim())
+    ) {
+      setFormStatus("error");
+      setErrorMessage("Adresa de email nu are un format valid.");
+      return;
+    }
+
+    if (formData.mesaj.trim() === "") {
+      setFormStatus("error");
+      setErrorMessage(
+        "Vă rugăm să ne oferiți un scurt mesaj sau o descriere a problemei.",
+      );
       return;
     }
 
