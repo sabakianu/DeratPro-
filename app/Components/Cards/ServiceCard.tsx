@@ -1,3 +1,5 @@
+"use client";
+
 import Button from "../Button";
 import IconBox from "../IconBox";
 
@@ -7,6 +9,7 @@ interface ServiceCardProps {
   title: string;
   description: string;
   features: string[];
+  serviceValue?: string;
 }
 
 export default function ServiceCard({
@@ -15,7 +18,21 @@ export default function ServiceCard({
   title,
   description,
   features,
+  serviceValue,
 }: ServiceCardProps) {
+  const handleAction = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+
+    if (serviceValue) {
+      window.dispatchEvent(
+        new CustomEvent("preselectService", { detail: serviceValue }),
+      );
+    }
+  };
+
   return (
     <div className="flex flex-col justify-between bg-bg-white rounded-xl p-8 border border-border-light shadow-level-1 hover:shadow-md transition-all group">
       <div className="space-y-4">
@@ -38,7 +55,7 @@ export default function ServiceCard({
         <ul className="space-y-2 pt-2 text-sm text-text-main">
           {features.map((feature, index) => (
             <li key={index} className="flex items-start gap-2">
-              <span className="material-symbols-outlined  text-brand-accent text-[18px] mt-0.5">
+              <span className="material-symbols-outlined text-brand-accent text-[18px] mt-0.5">
                 check_circle
               </span>
               <span>{feature}</span>
@@ -52,6 +69,7 @@ export default function ServiceCard({
         <Button
           variant="secondary"
           className="w-full gap-2 text-primary hover:bg-primary hover:text-white"
+          onClick={handleAction} // Am legat acțiunea de buton
         >
           <span>Solicită intervenție</span>
           <span className="material-symbols-outlined text-[18px]">

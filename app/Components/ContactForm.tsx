@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -15,6 +15,24 @@ export default function ContactForm() {
     "idle",
   );
   const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    const handlePreselect = (e: CustomEvent) => {
+      setFormData((prev) => ({ ...prev, serviciu: e.detail }));
+    };
+
+    window.addEventListener(
+      "preselectService",
+      handlePreselect as EventListener,
+    );
+
+    return () => {
+      window.removeEventListener(
+        "preselectService",
+        handlePreselect as EventListener,
+      );
+    };
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<

@@ -1,5 +1,3 @@
-import React from "react";
-
 interface StepCardProps {
   stepNumber: string | number;
   icon: string;

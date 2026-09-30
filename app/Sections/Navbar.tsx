@@ -55,7 +55,9 @@ export default function Navbar() {
           <span>0700 000 000</span>
         </Button>
 
-        <Button variant="primary">Cere Ofertă Rapidă</Button>
+        <Button variant="primary" href="#contact">
+          Cere Ofertă Rapidă
+        </Button>
       </div>
     </header>
   );

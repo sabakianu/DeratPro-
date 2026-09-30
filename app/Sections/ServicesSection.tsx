@@ -68,6 +68,7 @@ export default function ServicesSection() {
               title={service.title}
               description={service.description}
               features={service.features}
+              serviceValue={service.id}
             />
           ))}
         </div>
