@@ -1,6 +1,16 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+
+const serviciiOptions = [
+  { value: "deratizare", label: "Deratizare (Rozătoare / Șoareci / Șobolani)" },
+  { value: "dezinsectie", label: "Dezinsecție (Insecte / Gândaci / Ploșnițe)" },
+  { value: "dezinfectie", label: "Dezinfecție (Viruși / Bacterii / ULV)" },
+  {
+    value: "pachet_complet",
+    label: "Pachet Complet DDD (Autorizare / HoReCa)",
+  },
+];
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -16,16 +26,18 @@ export default function ContactForm() {
   );
   const [errorMessage, setErrorMessage] = useState("");
 
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const handlePreselect = (e: CustomEvent) => {
       setFormData((prev) => ({ ...prev, serviciu: e.detail }));
     };
-
     window.addEventListener(
       "preselectService",
       handlePreselect as EventListener,
     );
-
     return () => {
       window.removeEventListener(
         "preselectService",
@@ -34,10 +46,26 @@ export default function ContactForm() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    if (isDropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isDropdownOpen]);
+
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
@@ -77,6 +105,12 @@ export default function ContactForm() {
       return;
     }
 
+    if (!formData.serviciu) {
+      setFormStatus("error");
+      setErrorMessage("Vă rugăm să selectați un tip de serviciu.");
+      return;
+    }
+
     if (formData.mesaj.trim() === "") {
       setFormStatus("error");
       setErrorMessage(
@@ -86,12 +120,14 @@ export default function ContactForm() {
     }
 
     console.log("Date trimise valid:", formData);
-
     setFormStatus("success");
     setFormData({ nume: "", telefon: "", email: "", serviciu: "", mesaj: "" });
-
     setTimeout(() => setFormStatus("idle"), 5000);
   };
+
+  const selectedLabel =
+    serviciiOptions.find((opt) => opt.value === formData.serviciu)?.label ||
+    "Alegeți serviciul dorit";
 
   return (
     <form className="space-y-6" onSubmit={handleSubmit}>
@@ -149,34 +185,44 @@ export default function ContactForm() {
             className="w-full px-4 py-3 rounded-lg bg-bg-white border border-border-dark/30 text-text-main focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
           />
         </div>
-        <div className="space-y-2">
-          <label
-            htmlFor="serviciu"
-            className="text-sm text-text-main font-semibold"
-          >
+
+        <div className="flex flex-col gap-2 relative z-50" ref={dropdownRef}>
+          <label className="text-sm text-text-main font-semibold">
             Tipul Serviciului *
           </label>
-          <select
-            id="serviciu"
-            value={formData.serviciu}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-3 rounded-lg bg-bg-white border border-border-dark/30 text-text-main focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+
+          <button
+            type="button"
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="w-full flex justify-between items-center px-4 py-3 rounded-lg bg-bg-white border border-border-dark/30 text-text-main focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-left"
           >
-            <option value="">Alegeți serviciul dorit</option>
-            <option value="deratizare">
-              Deratizare (Rozătoare / Șoareci / Șobolani)
-            </option>
-            <option value="dezinsectie">
-              Dezinsecție (Insecte / Gândaci / Ploșnițe)
-            </option>
-            <option value="dezinfectie">
-              Dezinfecție (Viruși / Bacterii / ULV)
-            </option>
-            <option value="pachet_complet">
-              Pachet Complet DDD (Autorizare / HoReCa)
-            </option>
-          </select>
+            <span className="truncate pr-2">{selectedLabel}</span>
+            <span className="text-xs opacity-60 shrink-0">
+              {isDropdownOpen ? "▲" : "▼"}
+            </span>
+          </button>
+
+          <div
+            className={`absolute left-0 right-0 top-[calc(100%+8px)] bg-white border border-border-dark/30 rounded-lg shadow-2xl flex flex-col overflow-hidden transition-all duration-200 origin-top ${
+              isDropdownOpen
+                ? "opacity-100 scale-y-100 pointer-events-auto"
+                : "opacity-0 scale-y-0 pointer-events-none"
+            }`}
+          >
+            {serviciiOptions.map((opt) => (
+              <button
+                key={opt.value}
+                type="button"
+                onClick={() => {
+                  setFormData((prev) => ({ ...prev, serviciu: opt.value }));
+                  setIsDropdownOpen(false);
+                }}
+                className="w-full text-left px-4 py-3 text-sm hover:bg-bg-muted transition-colors border-b border-border-light/50 last:border-0"
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
