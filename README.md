@@ -1,41 +1,36 @@
 # DeratPro-
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Cum rulezi
 
-## Getting Started
+### Docker
 
-First, run the development server:
+Creare mediu: 
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+   docker-compose up --build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Pentru a opri mediul:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+   docker-compose down
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Clasic
 
-## Learn More
+```bash
+   npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+   npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Aplicatia va fi desponibila la: http://localhost:3000
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Link Vercel: https://derat-pro-seven.vercel.app/
 
 ## Tool de design AI folosit
 
@@ -47,10 +42,24 @@ Create a modern landing page with the name DeratPro. It is a proffesional pest c
 
 The components:
 
-Navbar with buttons and a logo
-Hero page with Three.js animation (the name and CTA button)
-Services (deratizare, dezinsecție, dezinfecție) with title , short description icon
-why to choose DeratPro (ex: intervenție rapidă, substanțe avizate, personal autorizat, garanție)
-Why it works (ex: Ne suni → Evaluare → Intervenție)
-Contact (form with nume, telefon, mesaj and email)
-Footer
+- Navbar with buttons and a logo
+- Hero page with Three.js animation (the name and CTA button)
+- Services (deratizare, dezinsecție, dezinfecție) with title , short description icon
+- why to choose DeratPro (ex: intervenție rapidă, substanțe avizate, personal autorizat, garanție)
+- Why it works (ex: Ne suni → Evaluare → Intervenție)
+- Contact (form with nume, telefon, mesaj and email)
+- Footer
+
+## Decizii/Compromisuri
+
+- La navbar pt ecranele mici am adăugat un buton "Dropdown" pentru a economisi spațiu și a arăta mai frumos;
+- Am testat extensia dark-theme de pe browser și arată chiar decent, așa că nu am mai adăugat un dark-toggle custom;
+- La formular secțiunea dropdown nu am mai folosit `<select>` nativ ci am pus unul custom deoarece la ecranele mici ieșea din ecran;
+- Pentru modularizarea codului pe lângă fiecare secțiune am creat carduri custom și alte componente deoarece se repetau în design cu customizări mici, așa că e mult mai modular acum codul;
+- La numere de telefon și email am pus dacă apasă utilizatorul să poată apela/ scrie email automat;
+- Am creat un fișier unde centralizează datele precum emailul, nr de telefon normal/urgențe și programele în caz dacă utilizatorul le schimbă, se va face automat peste tot;
+- Am adăugat "Waypoints" locale pt navigare rapidă și eficientă;
+- Am adăugat un modal pt termeni și condiții;
+- Pt servicii dacă utilizatorul dă click îl duce la contact și completează automat tipul serviciului;
+- Pt estetică la modelul 3d de pe Three.js am pus un tub de gândaci (e în temă :) ) am făcut să se rotească automat și utilizatorul prin drag îl rotește până la un moment dat și își revine inițial pe axa y, dar pe x rămâne cum l-a modificat;
+- Dacă apăs pe logo de pe navbar mă duce înapoi sus;
